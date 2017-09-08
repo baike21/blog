@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CC's博客-技术流</title>
+    <meta name="keywords" content="个人博客" />
+    <meta name="description" content="小清新风格的个人博客" />
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/tech.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<div id="logo"><a href="/static/images/logo.png"></a></div>
+<div class="avatar" id="avatar"><a href="/admin/"></a></div>
+<nav class="topnav" id="topnav">
+    <a href="/"><span>首页</span><span class="en">Home</span></a>
+    <a href="/tech/"><span>技术流</span><span class="en">Tech</span></a>
+    <a href="/movie/"><span>爱电影</span><span class="en">Movie</span></a>
+    <a href="/book/"><span>轻悦读</span><span class="en">Book</span></a>
+    <a href="/chat/"><span>扯淡派</span><span class="en">Chat</span></a>
+</nav>
+</header>
+<!-- blog文章 -->
+<article class="wrapper">
+    <!--  二级菜单  -->
+    <h1 class="t-nav">
+        <span>分享是一种积极的人生态度</span>
+        <a href="?category=web" class="n1">Web开发</a>
+        <a href="?category=linux" class="n2">系统运维</a>
+        <a href="?category=algorithm" class="n3">算法</a>
+        <a href="?category=language" class="n4">编程语言</a>
+        <a href="?category=others" class="n5">其他</a>
+    </h1>
+    <!--  左边栏 IT文章列表     -->
+    <div class="ITblogs left">
+        {% block techblog %}
+
+                {% for blog in articles.object_list %}
+                <h2>{{ blog.title }}</h2>
+                <ul class="nlist">
+                    <li><p class="abstract">{{ blog.abstract }}</p></li>
+                    <li><a class="readmore" href="{% url 'tech_detail' id=blog.id %}" target="_self">详细内容>></a></li>
+                    <li>
+                        <p class="info">
+                            <span>更新时间：{{ blog.update_time|date:'Y-m-d H:i' }}</span>
+                            <span>作者：cc</span>
+                            <span>标签：[{{ blog.tag }}]</span>
+                            <span>阅读量：{{ blog.view_times }}</span>
+                        </p>
+                    </li>
+                </ul>
+                <div class="line"></div>  <!--分割线-->
+                {% endfor %}
+                <!--  分页显示的页码  -->
+                <div class="page">
+                    {% if articles.has_previous %}
+                    <a title="上一页" href="?page={{ articles.previous_page_number }}"><b>&lt</b></a>
+                    {% endif %}
+                    {% for p in page_range %}
+                        {% ifequal p articles.number %}
+                            <b class="current">{{p}}</b>
+                        {% else %}
+                            <a title="第{{ p }}页" href="?page={{ p }}">{{ p }}</a>
+                        {% endifequal %}
+                    {% endfor %}
+                    {% if articles.has_next %}
+                        <a title="下一页" href="?page={{ articles.next_page_number }}">&gt</a>
+                    {% endif %}
+                    <a title="显示全部" href="?page=all" >All</a>
+                </div>
+
+    {% endblock %}
+
+    </div><!-- ITblogs left END -->
+    <!--   右边栏 一些筛选排序文章的模块  -->
+    <aside class="right">
+        <div class="r-nav">
+            <h2>标签</h2>
+            <ul>
+                <li><a href="?tag=Python" target="_self">Python</a></li>
+                <li><a href="?tag=CentOS" target="_self">CentOS</a></li>
+                <li><a href="?tag=Ansible" target="_self">Ansible</a></li>
+                <li><a href="?tag=Docker" target="_self">Docker</a></li>
+                <li><a href="?tag=Zabbix" target="_self">Zabbix</a></li>
+                <li><a href="?tag=Django" target="_self">Django</a></li>
+            </ul>
+        </div>
+        <!--  最新文章（同首页）   -->
+        <div class="news">
+            <h3 class="newest-article"><span>最新<span>文章</span></span></h3>
+            <ul class="newest">
+                {% for blog in newest_blogs %}
+                <li><a href="{% url 'tech_detail' id=blog.id %}" target="_blank">{{ blog.title }}</a></li>
+                {% endfor %}
+            </ul>
+
+            <h3 class="click"><span>点击<span>排行</span></span></h3>
+            <ul class="rank">
+                {% for blog in click_rank %}
+                <li><a href="{% url 'tech_detail' id=blog.id %}" target="_blank">{{ blog.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    <!-- 百度分享悬浮窗口 -->
+        <script src="/static/js/baidushare.js"></script>
+    <!-- 微信公众号二维码 -->
+        <div id="QRcode"><p>扫描图中二维码添加微信公众号</p></div>
+    </aside>
+
+</article>
+<footer>
+<p> CC's Blog <a href="http://www.askbaike.cc/" target="_self">陕ICPxxxxxx号-1</a>
+<a href="/">网站统计</a></p>
+</footer>
+<script src="/static/js/silder.js"></script>
+</body>
+</html>
+

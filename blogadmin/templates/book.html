@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="UTF-8">
+    <title>CC's博客-轻悦读</title>
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/book.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<div id="logo"><a href="/static/images/logo.png"></a></div>
+<div class="avatar" id="avatar"><a href="/admin/"></a></div>
+<nav class="topnav" id="topnav">
+    <a href="/"><span>首页</span><span class="en">Home</span></a>
+    <a href="/tech/"><span>技术流</span><span class="en">Tech</span></a>
+    <a href="/movie/"><span>爱电影</span><span class="en">Movie</span></a>
+    <a href="/book/"><span>轻悦读</span><span class="en">Book</span></a>
+    <a href="/chat/"><span>扯淡派</span><span class="en">Chat</span></a>
+</nav>
+</header>
+{% block bookblog %}
+<!--  图书展板  -->
+<article class="wrapper">
+    <h1 class="prologue">这里想做成一个书籍展板，放一些读书笔记和读后感</h1>
+    <div class="display-board">
+        {% for blog in book_reviews %}
+            <div class="blog-div">
+                <a href="{% url 'book_detail' id=blog.id %}">
+                <img src="/static/images/littleprince.jpg" alt="cover">
+                <span class="title">{{ blog.title }}</span>
+                <span class="pub_time">{{ blog.update_time|date:'Y-m-d' }}</span>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+</article>
+{% endblock %}
+<!-- 百度分享悬浮窗口 -->
+<script src="/static/js/baidushare.js"></script>
+<!-- 微信公众号二维码 -->
+<div id="QRcode"><p>扫描图中二维码添加微信公众号</p></div>
+
+<footer>
+<p> CC's Blog <a href="http://www.askbaike.cc/" target="_self">陕ICPxxxxxx号-1</a>
+</footer>
+<script src="/static/js/silder.js"></script>
+
+</body>
+</html>

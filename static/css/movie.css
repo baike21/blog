@@ -1,0 +1,181 @@
+@charset "UTF-8";
+/* CSS Document - movie.css */
+
+h1.introduce {
+	width: 1000px;
+	height: 40px;
+	margin: 20px auto;
+	color: #ff7f50;
+	font: 18px "微软雅黑";
+	font-weight: 800;
+	border-bottom: #f1f1f1 1px solid;
+	line-height: 40px;
+	text-align: left;
+	display: block;
+}
+/* 整个博文列表 */
+.blog-list-waterfall {
+	width: 1000px;
+	margin: 10px auto;
+	background: url(../images/r_title_bg.jpg) repeat-y 764px 0;
+	overflow: hidden;
+}
+/* 每个博文块的样式   */
+.arrow-box {
+	//display: none;
+	margin: 20px 0;
+	padding: 20px 0;
+	background: #f8f8f8;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, .1), inset 0 1px 1px rgba(214, 214, 214, 0.7);
+	width: 730px;
+	border-radius: 6px;
+	position: relative;
+
+}
+.arrow-box img {
+	width: 150px;
+	float: left;
+	margin: 0 20px 0 20px;
+}
+.arrow-box p {
+	line-height: 30px;
+	padding: 0 20px 20px
+}
+
+/* 博文标题 */
+a.review-title {
+	height:150px;
+	width: 450px;
+	//background-color: red;
+	font: 16px "微软雅黑";
+	font-weight: 600;
+	color: #999;
+
+}
+/* 博文标题装饰 */
+a.review-title:hover{
+	color: #000;
+	text-decoration-color: #000;
+	text-decoration-line: underline;
+	-moz-transition: color ease-in-out 0.4s;
+	-webkit-transition: color ease-in-out 0.4s;
+	-o-transition: color ease-in-out 0.4s;
+	transition: color ease-in-out 0.4s;
+
+}
+
+/* 小圆点之前 */
+.arrow-box::before {
+	content: "";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 0 20px 22px;
+	border-color: transparent transparent transparent #fff;
+	position: absolute;
+	left: 730px;
+	top: 23px;
+	-webkit-transition: all ease-in 0.4s;
+	-o-transition: all ease-in 0.4s;
+	transition: all ease-in 0.4s;
+}
+/* 小圆点之后 */
+.arrow-box::after {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	position: absolute;
+	left: 758px;
+	top: 16px;
+	background: #ccccce;
+	border: 2px solid #fff;
+	-webkit-transition: all ease-out 0.4s;
+	-moz-transition: all ease-out 0.4s;
+	-o-transition: all ease-out 0.4s;
+}
+/* 鼠标悬停 */
+.arrow-box:hover {
+	background: #f4f2f2;
+	//background: #cecccd;
+	color: #333;
+	text-shadow: #f7f7f7 1px 1px 1px;
+	//transition: all ease-out 0.4s;
+}
+/* 时间轴小圆点和三角形 */
+.arrow-box:hover::before {
+	border-color: transparent transparent transparent #cecccd;
+	-webkit-transition: all ease-in 0.4s;
+	-o-transition: all ease-in 0.4s;
+	transition: all ease-in 0.4s;
+
+}
+/* 时间轴上的小圆点和话题三角形 */
+.arrow-box:hover::after {
+	border: #fff 2px solid;
+	background: #ff69b4;
+	-webkit-transition: all ease-out 0.4s;
+	-o-transition: all ease-out 0.4s;
+	transition: all ease-out 0.4s;
+
+}
+/* 右侧发表时间 */
+.dateview {
+	position: absolute;
+	left: 788px;
+	top: 20px;
+	width: 125px;
+	line-height: 30px;
+	background: #ff69b4;
+	border-radius: 0 40px;
+	text-align: center;
+	color: #fff
+}
+/* 树叶形状 */
+.leaf-shape {
+	overflow: hidden
+}
+/* 返回顶部 */
+.totop {
+    display: none;
+    padding: 15px 4px;
+	font: 12px "微软雅黑";
+	color: #fff;
+	background-color: #00a0e9;
+	border-radius: 6px;
+	position:fixed;
+	bottom: 20px;
+	right: 20px;
+}
+#backtotop:hover {
+    text-decoration: none;
+}
+/* 加载更多 */
+#load-more {
+	width: 200px;
+	margin:auto;
+    padding: 10px;
+    text-align: center;
+    background-color: hotpink;
+    color: #fff;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+    -o-transition: all 600ms ease-in-out;
+}
+#load-more:hover {
+    background-color: #fff;
+    color: hotpink;
+}
+
+#QRcode {
+	margin:0;
+	padding:0;
+	float: right;
+	display: block;
+
+}

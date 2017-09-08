@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CC's博客--首页</title>
+    <meta name="description" content="小清新风格的个人博客" />
+    <meta name="keywords" content="个人博客" />
+    <link rel="stylesheet" href="/static/css/base.css" >
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.css">
+    <script src="/static/js/jquery-3.2.1.js"></script>
+    <script src="/static/js/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $( "#datepicker" ).datepicker();
+        });
+    </script>
+</head>
+<body>
+<!-- header section -->
+<header>
+    <div id="logo"><a href="/static/images/logo.png" target="_self"></a></div>
+    <!-- 头像 -->
+    <div class="avatar" id="avatar"><a href="#"></a></div>
+    <nav class="topnav" id="topnav">
+        <a href="/"><span>首页</span><span class="en">Home</span></a>
+        <a href="/tech/"><span>技术流</span><span class="en">Tech</span></a>
+        <a href="/movie/"><span>爱电影</span><span class="en">Movie</span></a>
+        <a href="/book/"><span>轻悦读</span><span class="en">Book</span></a>
+        <a href="/chat/"><span>扯淡派</span><span class="en">Chat</span></a>
+    </nav>
+</header>
+<!-- banner section -->
+<div class="banner">
+	<section class="box">
+		<ul class="texts">
+            <p>欢迎来到cc的博客！</p>
+            <p>这里记录cc平时写的一些学习笔记，影评，书评和杂文。</p>
+            <p>愿你年轻，永远有梦。</p>
+		</ul>
+	</section>
+</div>
+<!-- 腰封 精华帖 -->
+<section class="elite">
+        <h3><span class="outspan"><span class="innerspan">外网博客</span>精选</span></h3>
+		<ul>
+		<li><a href="https://www.cnblogs.com/"><img src="/static/images/01.jpg" alt="tech"></a><span>技术博文</span></li>
+		<li><a href="http://news.mtime.com/"><img src="/static/images/02.jpg" alt="movie"></a><span>热门影视</span></li>
+		<li><a href="https://book.douban.com/"><img src="/static/images/03.jpg" alt="book"></a><span>书摘书评</span></li>
+        <li><a href="http://ent.qq.com/zt2012/guiquan/index.htm"><img src="/static/images/04.jpg" alt="chat"></a><span>休闲娱乐</span></li>
+		</ul>
+</section>
+
+<article>
+    <h2 class="recommend"><span>文章推荐</span></h2>
+    <!--  左边栏  blog articles ordered by update_time  -->
+    <div class="bloglist left">
+        {% for blog in bloglist %}
+        <h3 class="title">{{blog.title}}</h3>
+{#        <figure><img src="/static/images/001.png"></figure>#}
+        <ul>
+            <li><p class="abstract">{{blog.abstract}}</p></li>
+            <li><a class="readmore" href="{% url 'tech_detail' id=blog.id %}" target="_blank">阅读全文>></a></li>
+            <li><p class="info">
+                    <span title="更新时间">{{ blog.update_time|date:'Y-m-d H:i' }}</span>
+                    <span title="作者">cc</span>
+                    <span title="标签">[{{ blog.category }}]</span>
+                    <span title="阅读量">{{ blog.view_times }}</span>
+                </p>
+            </li>
+        </ul>
+        {% endfor %}
+
+    </div>
+    <!--        右边栏         -->
+    <aside class="right">
+        <!-- 天气模块 -->
+        <div class="weather">
+            <iframe width="250" scrolling="no" height="60" frameborder="0" allowtransparency="true" src="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=1"></iframe>
+        </div>
+
+        <!-- 日历模块 -->
+        <div id="datepicker"></div>
+
+        <!-- 友情链接模块 -->
+        <div class="friend-links">
+            <h3><span>友情链接</span></h3>
+            <ul class="website">
+                <li><a href="http://www.csdn.net/">CSDN</a></li>
+                <li><a href="http://www.oschina.net/">开源中国</a></li>
+                <li><a href="http://www.mtime.com/">时光网</a></li>
+                <li><a href="http://www.douban.com/">豆瓣</a></li>
+                <li><a href="http://www.zhihu.com/">知乎</a></li>
+            </ul>
+
+        </div>
+        <!-- 百度分享悬浮窗口 -->
+        <script src="/static/js/baidushare.js"></script>
+        <!-- 微信公众号二维码 -->
+        <div id="QRcode"><p>扫描图中二维码添加微信公众号</p></div>
+    </aside>
+</article>
+<footer>
+<p> CC's Blog <a href="http://www.askbaike.cc/" target="_self">陕ICPxxxxxx号-1</a>
+<a href="/">网站统计</a></p>
+</footer>
+<script src="/static/js/silder.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="UTF-8">
+    <title>CC's博客-爱电影</title>
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/movie.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<div id="logo"><a href="/static/images/logo.png"></a></div>
+<div class="avatar" id="avatar"><a href="/admin/"></a></div>
+<nav class="topnav" id="topnav">
+    <a href="/"><span>首页</span><span class="en">Home</span></a>
+    <a href="/tech/"><span>技术流</span><span class="en">Tech</span></a>
+    <a href="/movie/"><span>爱电影</span><span class="en">Movie</span></a>
+    <a href="/book/"><span>轻悦读</span><span class="en">Book</span></a>
+    <a href="/chat/"><span>扯淡派</span><span class="en">Chat</span></a>
+</nav>
+</header>
+
+<!-- blog文章 -->
+<article class="wrapper">
+    {% block movieblog %}
+        <h1 class="introduce">cc是一个酷爱电影的ITer，这里全是她的影评~~~</h1>
+        <div class="blog-list-waterfall">
+            <!--首次打开网页显示的是最新的博文-->
+            {% for blog in newest_filmreviews %}
+            <!-- 每一个小的博文块  -->
+                <ul class="arrow-box">
+                    <div class="leaf-shape">
+                        <img class="pic" src="/media/{{ blog.cover }}">
+                        <p><a class="review-title" href="{% url 'movie_detail' id=blog.id %}" target="_self">{{ blog.title }}</a></p>
+                    </div>
+                    <span class="dateview">{{ blog.pub_time|date:'Y-m-d' }}</span>
+                </ul>
+            {% endfor %}
+        <!--ajax后台拉取数据用javascript加载到这里-->
+        </div>
+        <!-- 底部加载更多按钮 -->
+        <div id="load-more" ><a class="readmore">阅读更多...</a></div>
+    <script src="/static/js/jquery-3.2.1.js"></script>
+    <script>
+        /* 调用ajax请求实现异步加载数据 */
+        $(function () {
+            /*  初始化  */
+            var counter = 0;    /*加载按键点击次数计数器*/
+            var Start = 5;      /*数据切片的记录起点,先开始页面有5条记录*/
+            var Size = 5;       /*每次加载记录的条数*/
+            /*监听click事件*/
+            $("#load-more").on('click',function (e) {
+                e.preventDefault();
+                Start += counter * Size;
+                /* 如果Start没有超出界限就加载更多 */
+                //if (Start+Size <= 10){
+                getData(Start, Size);
+                //}
+                //else {
+                //    /* 已经到底了 */
+                //    isFinal();
+                //}
+                counter ++;
+                });
+        });
+        /*       业务逻辑代码，负责从服务端拉去数据      */
+        function getData(offset,size){
+            $.ajax({
+                //async:false,
+                type: 'GET',
+                {# 或者用django的DTL {% url load_more data %}  #}
+                url: '/movie/loadmore/' + '?offset=' + offset + '&size=' + size,
+                /* 请求的url地址,这里offset,size无作用，仅方便调试 */
+                dataType: 'json',  /* 服务端返回的类型,可以为xml、html、script、text、json字符串，json格式的对象 */
+                data:{"offset":offset,"size":size},   /* 重要：发送数据给服务器 */
+                success: function(data){  /* response是ajax请求成功后返回的参数，这里是Json格式的对象 */
+                    console.log(data);
+                    var blog = data.bloglist;/*json对象组成的数组*/
+                    var sum = blog.length;/* 每次加载数据个数 */
+                    var result = '';
+					
+					for(var i=0; i<sum; i++){
+						console.log(blog[i].id);
+						result +='<ul class="arrow-box"><div class="leaf-shape">'+
+							'<img src="/media/'+blog[i].cover+'/">'+
+							'<p><a class="review-title" href="'+'/movie/detail/'+blog[i].id+'/"'+' target="_self">' + blog[i].title +
+							'</a></p>'+'<span class="dateview">'+ blog[i].pub_time +'</span></div></ul>';
+					}
+					console.log(result);
+					/* 将新拉取的数据附加到页面列表部分的下端 */
+					$('.blog-list-waterfall').append(result);
+					
+					/*如果剩下的记录数不够分页，就让分页数取剩下的记录数，例如分页数是5，只剩2条，则只取2条*/
+                    if(sum < size ){
+						isFinal();/*隐藏load-more并显示已经到底了*/	
+                    }
+			
+	                },
+                error: function(xhr, errorCode, errorInfo){
+                    alert(errorInfo);
+                }
+            });
+        }
+        /*    告知用户已经到底部     */
+        function isFinal() {
+            $('#load-more').hide();
+            $('.blog-list-waterfall').append('<p style="font-size:18px;color:#00a0e9;margin:auto;">已经到底了</p>')
+
+        }
+    </script>
+
+    {% endblock %}
+
+    <p class="totop"><a id="backtotop" href="">返回顶部</a></p>
+    <script>
+        /* 返回顶部按钮 */
+        $('#backtotop').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 600);
+            return false;
+        });
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('.totop').fadeIn();
+            } else {
+                $('.totop').fadeOut();
+            }
+        });
+    </script>
+
+    <!-- 百度分享悬浮窗口 -->
+    <script src="/static/js/baidushare.js"></script>
+    <!-- 微信公众号二维码 -->
+    <div id="QRcode"><p>扫描图中二维码添加微信公众号</p></div>
+</article>
+<footer>
+<p> CC's Blog <a href="http://www.askbaike.cc/" target="_self">陕ICPxxxxxx号-1</a>
+<a href="/">网站统计</a></p>
+
+</footer>
+<!-- 导航栏文字颜色随当前url变化的功能 -->
+<script type="text/javascript" src="/static/js/silder.js"></script>
+
+</body>
+</html>
+

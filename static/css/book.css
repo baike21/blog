@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document - book.css */
+.wrapper {
+    width: 80%;
+    margin: 2em auto;
+    padding: 1em 2.4em;
+ }
+/* 卷首语 */
+.prologue {
+    margin: 0;
+	padding: 1em;
+	clear: both;
+	font: 1.4em "微软雅黑";
+	font-weight: bold;
+	color: #d2691e;
+	text-align: center;
+    text-shadow: 2px 2px 2px #ccc;
+}
+/* 展板 */
+.display-board {
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+    grid-gap: 1em;
+    grid-auto-rows:auto;
+}
+.display-board > div {
+	padding: 1em;
+}
+ /*每个博文块 */
+.blog-div {
+    transform: scale(0.98,0.98);
+    opacity: 0.85;
+    padding: 10px;
+    display: block;
+    border-radius: 10px;
+    background: rgba(255,240,245, .5);
+}
+
+.blog-div:hover{
+    opacity: 1;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .5);
+    transform: scale(1,1);
+    background-color: #EE82EE;
+}
+.blog-div a img {
+	margin: 6px;
+    border-radius: 10px;
+}
+.blog-div span {
+	color: #FFF0F5;
+	display: block;
+	text-align: center;
+	margin-top: 5px;
+	width: 280px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* 二维码 */
+#QRcode {
+    padding-left: 80%;
+    display: block;
+    height: 200px;
+
+}
+

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="UTF-8">
+    <title>CC's博客-爱电影</title>
+    <meta name="keywords" content="个人博客" />
+    <meta name="description" content="小清新风格的个人博客" />
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/movie.css" rel="stylesheet">
+    <link href="/static/css/moviedetail.css" rel="stylesheet">
+</head>
+<body>
+{% extends "movie.html" %}
+<!--   继承movie.html母版，替换导航栏以下部分  -->
+{% block movieblog %}
+<section class="movie-review">
+    <header class="blog-header">
+        <h2 class="blog-title">{{ blog.title }}</h2>
+        <ul class="blog-description">
+            <li><p class="time"><span>发布时间：{{ blog.pub_time|date:'Y-m-d H:i' }}</span></p></li>
+            <li><p class="tag"><span>作者：cc </span><span>标签：[{{ blog.tag }}]</span><span>阅读量：{{ blog.view_times }}</span>
+                    </p></li>
+        </ul>
+    </header>
+    <div class="blog-content">
+        {{ blog.content|safe }}
+    </div>
+</section>
+<script src="/static/js/jquery-3.2.1.js"></script>
+{% endblock %}
+
+
+</body>
+</html>
+
+

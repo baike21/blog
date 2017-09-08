@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/* CSS Document - techdetail.css */
+
+.blog-header{
+    width: 720px;
+    margin: 20px 10px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-bottom: dashed 1px;
+    border-top: dashed 1px;
+    //background-color: yellow;
+}
+h2.blog-title {
+    padding: 25px;
+    text-align: center;
+	font-size: 24px;
+}
+.time {
+	margin: 10px;
+	display: inline-block;
+	height: 26px;
+	color: #999;
+}
+.time span{
+    margin-right: 30px;
+}
+p.tag{
+    display: inline-block;
+	height: 26px;
+}
+p.tag span:nth-child(1){
+    margin-left: 40px;
+    color: #333;
+}
+p.tag span:nth-child(2){
+    margin-left: 40px;
+    color: 	#191970;
+}
+p.tag span:nth-child(3){
+    margin-left: 40px;
+    color: #FF1493;
+}
+/* 文章内容 */
+.blog-detail {
+    width: 710px;
+    margin: 0 10px;
+    border-radius: 5px;
+    display: block;
+}
+
+
+/* 返回顶部 */
+.totop {
+    display: none;
+    padding: 15px 4px;
+	font: 12px "微软雅黑";
+	color: #fff;
+	background-color: #00a0e9;
+	border-radius: 6px;
+	position:fixed;
+	bottom: 20px;
+	right: 20px;
+}
+
+#backtotop:hover {
+    text-decoration: none;
+}
+
+

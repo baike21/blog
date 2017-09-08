@@ -1,0 +1,299 @@
+@charset "utf-8";
+/* CSS Document - index.css */
+
+/* 背景图 */
+.banner {
+	margin: 10px 0;
+	padding: 0;
+	height: 360px;
+	background: url(../images/banner.jpg) no-repeat top center;
+	//background-size: 100%;
+	overflow: hidden;
+}
+/* 背景图上的动态文字 */
+.texts {
+	width: 50%;
+	line-height: 30px;
+	margin: 60px 20px 0 50%;
+	float: left;
+	color: #ffffff;
+	font-size: 18px;
+}
+.texts p {
+	-webkit-transform: translate(60px); /* Safari 和 Chrome */
+	-moz-transform: translate(60px);   /* Firefox */
+	-o-transform: translate(60px);     /* Opera */
+	transform: translate(60px);
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6), 2px 2px 3px rgba(180, 141, 141, 0.3);
+}
+.texts p:nth-child(1) {
+	-webkit-animation: animations 3s ease-out 1s backwards;
+	-moz-animation: animations 3s ease-out 1s backwards;
+	-o-animation: animations 3s ease-out 1s backwards;
+	animation: animations 3s ease-out 1s backwards;
+}
+.texts p:nth-child(2) {
+	-webkit-animation: animations 3s ease-out 4s backwards;
+	-moz-animation: animations 3s ease-out 4s backwards;
+	-o-animation: animations 3s ease-out 4s backwards;
+	animation: animations 3s ease-out 4s backwards;
+}
+.texts p:nth-child(3) {
+	-webkit-animation: animations2 5s ease-in-out 7s backwards;
+	-moz-animation: animations2 5s ease-in-out 7s backwards;
+	-o-animation: animations2 5s ease-in-out 7s backwards;
+	animation: animations2 5s ease-in-out 7s backwards;
+}
+@-webkit-keyframes animations {
+	0% { -webkit-transform: translate(0); opacity: 0 }
+	50% { -webkit-transform: translate(30px); opacity: .5 }
+	100% { -webkit-transform: translate(60px); opacity: 1 }
+}
+@-moz-keyframes animations {
+	0% { -moz-transform: translate(0); opacity: 0 }
+	50% { -moz-transform: translate(30px); opacity: .5 }
+	100% { -moz-transform: translate(60px); opacity: 1 }
+}
+@-o-keyframes animations {
+	0% { -o-transform: translate(0); opacity: 0 }
+	50% { -o-transform: translate(30px); opacity: .5 }
+	100% { -o-transform: translate(60px); opacity: 1 }
+}
+@keyframes animations {
+	0% { transform: translate(0); opacity: 0 }
+	50% { transform: translate(30px); opacity: .5 }
+	100% { transform: translate(60px); opacity: 1 }
+}
+@-webkit-keyframes animations2 {
+	0% { opacity: 0 }
+	40% { opacity: .8 }
+	45% { opacity: .3 }
+	50% { opacity: .8 }
+	55% { opacity: .3 }
+	60% { opacity: .8 }
+	100% { opacity: 1 }
+}
+@-moz-keyframes animations2 {
+	0% { opacity: 0 }
+	40% { opacity: .8 }
+	45% { opacity: .3 }
+	50% { opacity: .8 }
+	55% { opacity: .3 }
+	60% { opacity: .8 }
+	100% { opacity: 1 }
+}
+@-o-keyframes animations2 {
+	0% { opacity: 0 }
+	40% { opacity: .8 }
+	45% { opacity: .3 }
+	50% { opacity: .8 }
+	55% { opacity: .3 }
+	60% { opacity: .8 }
+	100% { opacity: 1 }
+}
+@keyframes animations2 {
+	0% { opacity: 0 }
+	40% { opacity: .8 }
+	45% { opacity: .3 }
+	50% { opacity: .8 }
+	55% { opacity: .3 }
+	60% { opacity: .8 }
+	100% { opacity: 1 }
+}
+
+/* 腰封 精华帖 */
+.elite {
+	width: 100%;
+	margin: 0;
+
+	background-color: #eee;
+	//background-color: coral;
+}
+.elite h3 {
+	border-bottom: #fff 2px solid;
+	width: 80%;
+	overflow: hidden;
+	margin: 10px auto 10px auto;
+	padding: 5px 10px;
+	display: block;
+	clear: both;
+	font: 20px "微软雅黑";
+}
+
+.elite h3 span.outspan {
+	background: #000;
+	margin: 5px 0 5px 0;
+	padding: 0 10px 0 5px;
+	line-height: 35px;
+	color: #FF4500;
+	text-align: center;
+	box-shadow: #999 4px 5px 1px;
+}
+.elite h3 span.innerspan {
+	padding: 0 5px;
+	color: #fff;
+}
+.elite ul {
+	width: 80%;
+	margin: 0 auto;
+	padding-left: 100px;
+	display: block;
+	overflow: hidden;
+	//background-color: coral;
+}
+.elite ul li {
+	float: left;
+	display: block;
+	padding: 15px 15px 6px 15px;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+.elite li img {
+	width: 200px;
+	height: 200px;
+	background: #FFF;
+	padding: 4px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+	display: block;
+}
+.elite li span {
+	color: #F1F0EE;
+	display: block;
+	text-align: center;
+	margin-top: 5px;
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 20px;
+}
+.elite li:hover {
+	background: #666;
+	padding: 15px 15px 6px 15px;
+}
+/* 文章推荐 */
+h2.recommend {
+	padding: 10px 50px;
+	font: 20px "微软雅黑", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background: url(../images/h_line.jpg) repeat-x center right;
+}
+h2.recommend span {
+	padding: 0 10px;
+	color: #FE5187;
+	background: #fff;
+}
+/* 左边栏 */
+.bloglist {
+	overflow: hidden;
+	background: url(../images/r_line.jpg) repeat-y right;
+}
+.bloglist h3.title {
+	font: 18px "微软雅黑", Arial;
+	font-weight: 600;
+	margin: 20px 0 10px 0;
+	padding-left: 10px;
+	color: #333;
+}
+/*.bloglist figure {*/
+	/*float: left;*/
+	/*width: 183px;*/
+/*}*/
+/*.bloglist figure img {*/
+	/*padding: 4px;*/
+	/*border: #f4f2f2 1px solid;*/
+	/*width: 175px;*/
+/*}*/
+.bloglist ul {
+	margin: 10px 0;
+	width: 760px;
+	line-height: 20px;
+}
+/* 简介摘要 */
+p.abstract {
+	font-size: 14px;
+	padding: 10px 30px;
+	height: 80px;
+}
+/* 阅读全文 */
+a.readmore {
+	margin: 10px auto;
+	padding: 5px 10px;
+	color: #fff;
+	background: #FFC125;
+	float: right;
+}
+/* 更新时间，作者，标签，阅读量 */
+p.info {
+	width: 650px;
+	height: 30px;
+	margin: 10px 0 0 0;
+	padding-left: 10px;
+	overflow: hidden;
+	display: inline-block;
+	color: #838383;
+	background-color: #f6f6f6;
+	line-height: 26px;
+}
+p.info span:nth-child(1) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/clock.png) 0 center no-repeat;
+}
+p.info span:nth-child(2) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/author.png) 0 center no-repeat;
+}
+p.info span:nth-child(3) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/tag.png) 0 center no-repeat;
+}
+p.info span:nth-child(4) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/eye.png) 0 center no-repeat;
+
+}
+/* 右边栏 */
+.weather {
+	background: url(../images/weather_bg.jpg) no-repeat;
+	height: 88px;
+	margin: 20px 10px;
+	padding: 20px 0 0 70px;
+}
+#datepicker {
+	margin: 30px;
+}
+
+.friend-links h3 {
+	background: #fff url(../images/r_title_bg.jpg) repeat-x center;
+
+}
+.friend-links h3 span {
+	padding: 10px;
+	font-size: 16px;
+	color: #00CD00;
+	background-color: #fff;
+
+}
+.website {
+	margin: 10px 0 0 0;
+	padding: 0;
+	background: #F3F3F3;
+	border-radius: 45%;
+	text-align: center;
+}
+.website li {
+	line-height: 30px;
+	text-shadow: #fff 1px 1px 1px;
+	height: 30px;
+}
+.website li a {
+	color: #37CCCA;
+	font-size: 14px;
+	font-weight: 600;
+
+}

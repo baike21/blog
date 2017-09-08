@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+</head>
+<body>
+<!--
+<h1>测试循环字段</h1>
+{% for i in blogs %}
+    {{ i.title }}<br>
+{% endfor %}
+-->
+<br><br>
+<!--  放置一些暂时废弃的代码
+<h1>测试索引取值</h1>
+{{ blog.title }}
+
+
+<h2>自动化运维工具Zabbix之自定义监控</h2>
+    <figure><img src="images/01.jpg"></figure>
+    <ul class="nlist">
+        <p>自动化运维工具Zabbix之自定义监控自动化运维工具Zabbix之自定义监控自动化运维工具Zabbix之自定义监控自动化运维工具Zabbix之自定义监控</p>
+        <a title="/" href="/" target="_blank" class="readmore">详细内容>></a>
+        <p class="dateview"><span>发布时间：2017-8-25</span><span>作者：cc</span><span>所属分类：[<a href="/tech/Linux">系统运维</a>]</span></p>
+    </ul>
+    <div class="line"></div>
+
+    <h2>Python中的下划线</h2>
+    <figure><img src="images/01.jpg"></figure>
+    <ul class="nlist">
+        <p>Python中的下划线Python中的下划线Python中的下划线Python中的下划线Python中的下划线Python中的下划线Python中的下划线</p>
+        <a title="/" href="/" target="_blank" class="readmore">详细内容>></a>
+        <p class="dateview"><span>发布时间：2017-8-25</span><span>作者：cc</span><span>所属分类：[<a href="/tech/Python">编程语言</a>]</span></p>
+    </ul>
+    <div class="line"></div>
+
+    <h2>程序员必须知道的十大基础实用算法</h2>
+    <figure><img src="images/01.jpg"></figure>
+    <ul class="nlist">
+        <p>程序员必须知道的十大基础实用算法程序员必须知道的十大基础实用算法程序员必须知道的十大基础实用算法程序员必须知道的十大基础实用算法</p>
+        <a title="/" href="/" target="_blank" class="readmore">详细内容>></a>
+        <p class="dateview"><span>发布时间：2017-8-25</span><span>作者：cc</span><span>所属分类：[<a href="/tech/C++">算法</a>]</span></p>
+    </ul>
+    <div class="line"></div>
+
+    <h2>vim常用配置</h2>
+    <figure><img src="images/01.jpg"></figure>
+    <ul class="nlist">
+        <p>vim常用配置vim常用配置vim常用配置vim常用配置vim常用配置vim常用配置vim常用配置vim常用配置vim常用配置vim常用配置vim常用配置</p>
+        <a title="/" href="/" target="_blank" class="readmore">详细内容>></a>
+        <p class="dateview"><span>发布时间：2017-8-25</span><span>作者：cc</span><span>所属分类：[<a href="/tech/Others">其他</a>]</span></p>
+    </ul>
+-->
+<h1>测试分类显示菜单栏</h1>
+
+{% ifequal blog.category '技术' %}
+    <h1 class="t-nav">
+        <span>分享是一种积极的人生态度</span>
+        <a href="#" class="n1">Web开发</a>
+        <a href="#" class="n2">系统运维</a>
+        <a href="#" class="n3">算法</a>
+        <a href="#" class="n4">编程语言</a>
+        <a href="#" class="n5">其他</a>
+    </h1>
+
+{% endifequal %}
+
+
+
+</body>
+</html>
+
+
+
+
+
+{% extends "tech.html" %}
+<!doctype html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title>CC's博客-正文</title>
+    <meta name="keywords" content="个人博客" />
+    <meta name="description" content="小清新风格的个人博客" />
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/tech.css" rel="stylesheet">
+</head>
+<body>
+<header>
+<div id="logo"><a href="../static/images/logo.png"></a></div>
+<div class="avatar" id="avatar"><a href="/admin/"></a></div>
+<nav class="topnav" id="topnav">
+    <a href="/index/"><span>首页</span><span class="en">Home</span></a>
+    <a href="/tech/"><span>技术流</span><span class="en">Tech</span></a>
+    <a href="/movie/"><span>爱电影</span><span class="en">Movie</span></a>
+    <a href="/book/"><span>轻悦读</span><span class="en">Book</span></a>
+    <a href="/chat/"><span>扯淡派</span><span class="en">Chat</span></a>
+</nav>
+</header>
+<!-- blog详细内容 -->
+<article class="wrapper">
+    <!-- 根据类别不同显示二级菜单栏和框架 -->
+    {% ifequal blog.category '技术' %}
+        <!--继承tech.html的菜单栏-->
+        {% block tech-title %}
+        {% endblock %}
+        <div class="ITblogs left">
+            <section class="blog-detail">
+                <header class="blog-header">
+                    <h2 class="blog-title">标题：{{ blog.title }}</h2>
+                        <p class="dateview">
+                            <span>发布时间：{{ blog.pub_time }}  更新时间：{{ blog.update_time }}</span>
+                            <span>作者：cc</span>
+                            <span class="tag">类别标签：[{{ blog.category }}|{{ blog.tag }}]</span>
+                        </p>
+                    </header>
+                        <div class="blog_abstract">
+                            <p>{{ blog.abstract|safe }}</p>
+                        </div>
+                        <div class="blog-description">
+                            <p>{{ blog.content|safe }}</p>
+                        </div>
+            </section>
+        </div>
+        <!--继承tech.html的右边栏-->
+        {% block tech-aside %}
+
+        {% endblock %}
+
+    {% endifequal %}
+</article>
+
+<footer>
+<p> CC's Blog <a href="http://www.askbaike.cc/" target="_blank">陕ICPxxxxxx号-1</a>
+<a href="/">网站统计</a></p>
+</footer>
+<script src="../static/js/silder.js"></script>
+
+<!-- 测试 ajax 加载更多的功能 -->
+
+
+    {#
+        {% for blog in newest_filmreviews %}
+        <!-- 每一个小的博文块  -->
+            <ul class="arrow-box">
+                <div class="leaf-shape">
+                    <img src="/static/images/02.jpg">
+                    <p><a class="review-title" href="#">{{ blog.title }}</a></p>
+                    <span class="dateview">{{ blog.pub_time|date:'Y-m-d' }}</span>
+                </div>
+            </ul>
+        {% endfor %}
+    #}
+
+
+
+
+</body>
+</html>

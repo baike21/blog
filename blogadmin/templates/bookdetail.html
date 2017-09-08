@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CC's博客-轻悦读</title>
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/book.css" rel="stylesheet">
+    <link href="/static/css/bookdetail.css" rel="stylesheet">
+</head>
+<body>
+{% extends "book.html" %}
+<!-- 继承book.html母版，替换主要内容article部分 -->
+{% block bookblog %}
+<section class="book-review">
+    <header class="blog-header">
+        <h2 class="blog-title">{{ blog.title }}</h2>
+        <ul class="blog-description">
+            <li><p class="time"><span>更新时间：{{ blog.update_time|date:'Y-m-d H:i' }}</span></p></li>
+            <li><p class="tag">作者：cc <span>标签：[{{ blog.tag }}]</span></p></li>
+        </ul>
+    </header>
+    <div class="blog-content">
+        {{ blog.content|safe }}
+    </div>
+</section>
+
+<script src="/static/js/jquery-3.2.1.js"></script>
+<p class="totop"><a id="backtotop" href="">返回顶部</a></p>
+<script>
+    /* 返回顶部按钮 */
+    $('#backtotop').click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 600);
+        return false;
+    });
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 50) {
+            $('.totop').fadeIn();
+        } else {
+            $('.totop').fadeOut();
+        }
+    });
+</script>
+
+{% endblock %}
+
+</body>
+</html>

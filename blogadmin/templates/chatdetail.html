@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>CC's博客-轻悦读</title>
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link href="/static/css/chat.css" rel="stylesheet">
+    <link href="/static/css/bookdetail.css" rel="stylesheet">
+</head>
+<body>
+{% extends "chat.html" %}
+<!-- 继承chat.html母版，替换essay-list部分 -->
+{% block chatblog %}
+<section class="essay">
+    <header class="blog-header">
+        <h2 class="blog-title">{{ blog.title }}</h2>
+        <ul class="blog-description">
+            <li><p class="time"><span>更新时间：{{ blog.update_time|date:'Y-m-d H:i' }}</span></p></li>
+            <li><p class="tag">作者：cc <span>标签：[{{ blog.tag }}]</span></p></li>
+        </ul>
+    </header>
+    <div class="blog-content">
+        {{ blog.content|safe }}
+    </div>
+</section>
+
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+@charset "utf-8";
+/* CSS Document - index.css */
+
+/* 背景图 */
+.banner {
+	margin: 10px 0;
+	padding: 0;
+	height: 360px;
+	background: url(../images/banner.jpg) no-repeat top center;
+	//background-size: 100%;
+	overflow: hidden;
+}
+/* 背景图上的动态文字 */
+.texts {
+	width: 50%;
+	line-height: 30px;
+	margin: 60px 20px 0 50%;
+	float: left;
+	color: #ffffff;
+	font-size: 18px;
+}
+.texts p {
+	-webkit-transform: translate(60px); /* Safari 和 Chrome */
+	-moz-transform: translate(60px);   /* Firefox */
+	-o-transform: translate(60px);     /* Opera */
+	transform: translate(60px);
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6), 2px 2px 3px rgba(180, 141, 141, 0.3);
+}
+.texts p:nth-child(1) {
+	-webkit-animation: animations 3s ease-out 1s backwards;
+	-moz-animation: animations 3s ease-out 1s backwards;
+	-o-animation: animations 3s ease-out 1s backwards;
+	animation: animations 3s ease-out 1s backwards;
+}
+.texts p:nth-child(2) {
+	-webkit-animation: animations 3s ease-out 4s backwards;
+	-moz-animation: animations 3s ease-out 4s backwards;
+	-o-animation: animations 3s ease-out 4s backwards;
+	animation: animations 3s ease-out 4s backwards;
+}
+.texts p:nth-child(3) {
+	-webkit-animation: animations2 5s ease-in-out 7s backwards;
+	-moz-animation: animations2 5s ease-in-out 7s backwards;
+	-o-animation: animations2 5s ease-in-out 7s backwards;
+	animation: animations2 5s ease-in-out 7s backwards;
+}
+@-webkit-keyframes animations {
+	0% { -webkit-transform: translate(0); opacity: 0 }
+	50% { -webkit-transform: translate(30px); opacity: .5 }
+	100% { -webkit-transform: translate(60px); opacity: 1 }
+}
+@-moz-keyframes animations {
+	0% { -moz-transform: translate(0); opacity: 0 }
+	50% { -moz-transform: translate(30px); opacity: .5 }
+	100% { -moz-transform: translate(60px); opacity: 1 }
+}
+@-o-keyframes animations {
+	0% { -o-transform: translate(0); opacity: 0 }
+	50% { -o-transform: translate(30px); opacity: .5 }
+	100% { -o-transform: translate(60px); opacity: 1 }
+}
+@keyframes animations {
+	0% { transform: translate(0); opacity: 0 }
+	50% { transform: translate(30px); opacity: .5 }
+	100% { transform: translate(60px); opacity: 1 }
+}
+@-webkit-keyframes animations2 {
+	0% { opacity: 0 }
+	40% { opacity: .8 }
+	45% { opacity: .3 }
+	50% { opacity: .8 }
+	55% { opacity: .3 }
+	60% { opacity: .8 }
+	100% { opacity: 1 }
+}
+@-moz-keyframes animations2 {
+	0% { opacity: 0 }
+	40% { opacity: .8 }
+	45% { opacity: .3 }
+	50% { opacity: .8 }
+	55% { opacity: .3 }
+	60% { opacity: .8 }
+	100% { opacity: 1 }
+}
+@-o-keyframes animations2 {
+	0% { opacity: 0 }
+	40% { opacity: .8 }
+	45% { opacity: .3 }
+	50% { opacity: .8 }
+	55% { opacity: .3 }
+	60% { opacity: .8 }
+	100% { opacity: 1 }
+}
+@keyframes animations2 {
+	0% { opacity: 0 }
+	40% { opacity: .8 }
+	45% { opacity: .3 }
+	50% { opacity: .8 }
+	55% { opacity: .3 }
+	60% { opacity: .8 }
+	100% { opacity: 1 }
+}
+
+/* 腰封 精华帖 */
+.elite {
+	margin: 0 0 10px 0;
+	background-color: #eee;
+}
+.elite h3 {
+	border-bottom: #fff 2px solid;
+	width: 100%;
+	overflow: hidden;
+	margin: 10px 0 10px 0;
+	display: block;
+	clear: both;
+	font: 20px "微软雅黑";
+}
+.elite h3 span.outspan {
+	background: #000;
+	margin: 5px 0 5px 0;
+	padding: 0 10px 0 5px;
+	line-height: 35px;
+	color: #FF4500;
+	text-align: center;
+	box-shadow: #999 4px 5px 1px;
+}
+.elite h3 span.innerspan {
+	padding: 0 5px;
+	color: #fff;
+}
+.elite ul {
+	overflow: hidden
+}
+.elite ul li {
+	margin: 3px;
+	float: left;
+	display: block;
+	padding: 5px 5px 6px 5px;
+	-webkit-transition: all 1s;
+	-moz-transition: all 1s;
+	-o-transition: all 1s;
+	transition: all 1s;
+}
+.elite li img {
+	width: 220px;
+	height: 220px;
+	background: #FFF;
+	padding: 4px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+	display: block;
+}
+.elite li span {
+	color: #F1F0EE;
+	display: block;
+	text-align: center;
+	margin-top: 5px;
+	width: 220px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 20px;
+}
+.elite li:hover {
+	background: #666;
+	padding: 5px 5px 6px 5px;
+}
+/* 文章推荐 */
+h2.blogtitle {
+	font: 20px "微软雅黑", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background: url(../images/h_line.jpg) repeat-x center right;
+}
+h2.blogtitle span {
+	padding: 0 20px;
+	color: #FE5187;
+	background: #fff;
+}
+/* 左边栏 */
+.bloglist {
+	width: 800px;
+
+	overflow: hidden;
+	background: url(../images/r_line.jpg) repeat-y right;
+	margin: 10px 0;
+}
+.bloglist h3 {
+	margin: 20px 0 10px 0;
+	color: #333;
+}
+.bloglist figure {
+	float: left;
+	width: 183px;
+}
+.bloglist figure img {
+	padding: 4px;
+	border: #f4f2f2 1px solid;
+	width: 175px;
+}
+.bloglist ul {
+	float: left;
+	width: 520px;
+	height: 100px;
+	margin-top: 10px;
+	line-height: 20px;
+	//background-color: red;
+}
+.bloglist p {
+	height: 80px;
+}
+/* 阅读全文 */
+a.readmore {
+	margin: 5px auto;
+	background: #FFC125;
+	color: #fff;
+	padding: 5px 10px;
+	float: right;
+}
+/* 更新时间及作者和类别 */
+p.dateview {
+	width: 695px;
+	overflow: hidden;
+	clear: both;
+	margin: 10px 0 0 0;
+	display: inline-block;
+	background: #f6f6f6 url(../images/time.jpg) 15px center no-repeat;
+	line-height: 26px;
+	height: 26px;
+	color: #838383;
+	padding-left: 25px;
+}
+p.dateview span {
+	margin: 0 10px;
+}
+p.dateview span a {
+	color: #099B43;
+}
+/* 右边栏 */
+.weather {
+	background: url(../images/weather_bg.jpg) no-repeat;
+	height: 88px;
+	margin: 20px 0;
+	padding: 20px 0 0 75px;
+}
+.news h3 {
+	font-size: 16px;
+	background: url(../images/r_title_bg.jpg) repeat-x center right;
+}
+.click span {
+	padding-right:10px;
+	background-color: #fff;
+	color: #333;
+}
+.click span span{
+	background-color: #fff;
+	color: #FF4500;
+}
+.news ul {
+	margin-bottom: 20px;
+}
+.news ul li a:hover {
+	text-decoration: underline;
+	color: #FF4500;
+}
+.rank {
+	background: url(../images/rank.jpg) no-repeat left 8px;
+	margin: 10px 0;
+}
+.rank li {
+	line-height: 30px;
+	height: 30px;
+	overflow: hidden;
+	padding-left: 25px;
+	border-bottom: #CCC dotted 1px;
+}
+.links span {
+	padding-right:10px;
+	background-color: #fff;
+	color: #333;
+}
+.links span span{
+	background-color: #fff;
+	color: #00CD00;
+}
+.website {
+	margin: 10px 0 0 0;
+	padding: 0;
+	background: #F3F3F3;
+	border-radius: 45%;
+	text-align: center;
+}
+.website li {
+	line-height: 30px;
+	text-shadow: #fff 1px 1px 1px;
+	height: 30px;
+}
+.website li a {
+	color: #37CCCA;
+	font-size: 14px;
+	font-weight: 600;
+
+}
