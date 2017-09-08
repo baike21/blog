@@ -50,7 +50,7 @@ header {
     padding-top: 40px;
     width: 40px;
     display: block;
-    background: url(http://i2.bvimg.com/601032/03489663c852a2d8.jpg) no-repeat center center;
+    background: url(../images/avatar.jpg) no-repeat center center;
     background-size: 36px 36px;
 }
 
@@ -130,7 +130,7 @@ article {
 	width: 200px;
 	height: 160px;
 	margin: 20px;
-	background: url('../images/weixinQRcode.jpg') no-repeat top center;
+	background: url(../images/weixinQRcode.jpg) no-repeat top center;
 	display: inline-block;
 	overflow: hidden;
 	clear: both;

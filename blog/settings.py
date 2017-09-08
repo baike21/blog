@@ -144,7 +144,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 
 # 公共的static文件夹
 STATIC_DIRS = (
-    os.path.join(BASE_DIR,'common_static'),
+    os.path.join(BASE_DIR,'static'),
     os.path.join(BASE_DIR,'media'),
 )
 
@@ -154,23 +154,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.FileSystemFinder", "django.contrib.staticfiles.finders.AppDirectoriesFinder",)
 
-
-# 添加调试Django时打印SQL语句的日志
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console':{
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
-            'propagate': True,
-            'level':'DEBUG',
-        },
-    }
-}
 
