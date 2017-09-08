@@ -6,7 +6,7 @@
 	padding: 0;
 }
 body {
-	font: 14px "微软雅黑", Arial, Helvetica, sans-serif;
+	font: 12px "微软雅黑", Arial, Helvetica, sans-serif;
 }
 img {
 	border: 0;
@@ -19,25 +19,7 @@ a:link, a:visited {
 	text-decoration: none;
 	color: #333;
 }
-.left {
-	float: left;
-}
-.right {
-	float: right;
-}
-.blank {
-	height: 5px;
-	overflow: hidden;
-	width: 100%;
-	margin: auto;
-	clear: both;
-}
-.box {
-	width: 1000px;
-	margin: auto;
-	overflow: hidden;
-}
-
+/* 页眉 */
 header {
 	width: 90%;
 	margin: auto;
@@ -124,29 +106,44 @@ nav a:hover {
 	z-index: 1;
 	display: block;
 }
+
+/* 分栏 */
+article {
+	display: block;
+	width: 1100px;
+	margin-left: 100px;
+	overflow: hidden;
+
+
+}
+.left {
+	float: left;
+	width: 780px;
+}
+.right {
+	float: right;
+	width: 300px;
+}
+
 /* 二维码 */
-#QRcode a {
-	width: 140px;
-	height: 140px;
-	margin: 20px 20px 0 40px;
-	background: url(../images/weixinQRcode.jpg) no-repeat;
+#QRcode {
+	width: 200px;
+	height: 160px;
+	margin: 20px;
+	background: url('../images/weixinQRcode.jpg') no-repeat top center;
 	display: inline-block;
 	overflow: hidden;
 	clear: both;
 }
-
-article {
-	width: 1200px;
-	margin: 20px auto;
-	overflow: hidden;
+#QRcode p {
+	margin-top: 120px;
+	text-align: center;
 }
-aside {
-	width: 300px;
-}
+/* 页脚 */
 footer {
 	text-align: center;
 	line-height: 40px;
 	border-top: #E8E8E8 1px solid;
-	width: 1000px;
-	margin: auto;
+	width: auto;
+	margin: 50px auto;
 }

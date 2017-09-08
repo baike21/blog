@@ -57,11 +57,17 @@
 	text-overflow: ellipsis;
 }
 
+
 /* 二维码 */
 #QRcode {
-    padding-left: 80%;
-    display: block;
-    height: 200px;
-
+    margin-left: 80%;
+	width: 200px;
+	height: 160px;
+	background: url('../images/weixinQRcode.jpg') no-repeat top center;
+	overflow: hidden;
+	clear: both;
 }
-
+#QRcode p {
+	margin-top: 120px;
+	text-align: center;
+}

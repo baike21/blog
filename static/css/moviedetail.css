@@ -36,15 +36,21 @@
 	color: #999;
 }
 .time span{margin-right: 30px;}
-.tag{
-
+p.tag{
     display: inline-block;
 	height: 26px;
 }
-.tag span{
+p.tag span:nth-child(1){
     margin-left: 40px;
-    //font-weight:bold;
-    color: #0000ff;
+    color: #333;
+}
+p.tag span:nth-child(2){
+    margin-left: 40px;
+    color: #FF1493;
+}
+p.tag span:nth-child(3){
+    margin-left: 40px;
+    color: 	#1e90ff;
 }
 
 .blog-content {

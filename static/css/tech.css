@@ -1,17 +1,20 @@
 @charset "UTF-8";
-
 /* CSS Document - tech.css */
-h1.t-nav span {
-	float: right;
-	color: #ffc125;
-	font-size: 16px;
-}
+
 h1.t-nav {
 	border-bottom: 1px solid #ccc;
 	font-size: 18px;
 	font-weight: normal;
 	line-height: 40px;
 	height: 40px;
+	margin: 20px 0;
+	padding-right: 20px;
+	//background-color: #6ce26c;
+}
+h1.t-nav span {
+	float: right;
+	color: #ffc125;
+	font-size: 16px;
 }
 h1.t-nav a {
 	width: 100px;
@@ -38,63 +41,69 @@ h1.t-nav a {
 }
 /* 左侧博文 */
 .ITblogs {
-	width: 850px;
 	overflow: hidden;
 	background: url(../images/r_line.jpg) repeat-y right;
-	margin: 10px 0;
+
 }
 .ITblogs h2 {
 	color: #333;
 	font-size: 20px;
 	margin: 20px 0 10px 0;
 	clear: both;
-}
-.ITblogs figure img {
-	float: left;
-	width: 200px;
-	height: 160px;
-	border: #ccc 1px solid;
-	padding: 4px;
-	border-radius: 5%;
+
 }
 .nlist {
-	width: 800px;
+	width: 750px;
 	height: 150px;
 	float: left;
 	margin: 0 0 0 10px;
 	//border: #333 1px solid;
 }
-.nlist li p {
-	height: 80px;
-	padding: 10px;
-	font-size: 16px;
+p.abstract {
+	height: 100px;
+	margin: 10px 30px;
+	padding-right: 50px ;
+	font-size: 14px;
 	color: #333;
 }
-.nlist li p.dateview {
-	width: 660px;
+p.info {
+	width: 600px;
 	overflow: hidden;
-	clear: both;
 	margin: 0;
+	padding: 8px;
 	display: inline-block;
-	background: #f6f6f6 url(../images/time.jpg) 15px center no-repeat;
-	line-height: 16px;
+	background-color: #f6f6f6;
 	height: 16px;
 	color: #838383;
-	font-size: 14px;
-	padding-left: 25px;
-	border-radius: 5%;
+	font-size: 12px;
+
+	border-radius: 3px;
 }
-.nlist li p.dateview span {
+p.info span:nth-child(1) {
 	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/clock.png) 0 center no-repeat;
 }
-.nlist li p.dateview span.tag {
-	color: #099B43;
+p.info span:nth-child(2) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/author.png) 0 center no-repeat;
+}
+p.info span:nth-child(3) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/tag.png) 0 center no-repeat;
+}
+p.info span:nth-child(4) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/eye.png) 0 center no-repeat;
 }
 .nlist li a.readmore {
-	margin: 0;
+	margin: 0 20px 0 10px;
 	background: #ffc125;
 	color: #fff;
-	padding: 6px 10px;
+	padding: 8px 10px;
 	float: right;
 }
 .line {
@@ -109,7 +118,7 @@ h1.t-nav a {
 	width: 250px;
 	margin: 20px 0;
 	overflow: hidden;
-	background: url(../images/clip.png) no-repeat left top
+	background: url(../images/price-tag.png) no-repeat left top
 }
 .r-nav h2 {
 	font-size: 16px;
@@ -199,9 +208,7 @@ h1.t-nav a {
 	padding-left: 25px;
 	border-bottom: #CCC dotted 1px;
 }
-.info {
-	margin: 30px 0
-}
+
 /*分页*/
 .page {
 	margin: 20px 0 0 0;

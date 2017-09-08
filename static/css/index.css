@@ -103,18 +103,23 @@
 
 /* 腰封 精华帖 */
 .elite {
-	margin: 0 0 10px 0;
+	width: 100%;
+	margin: 0;
+
 	background-color: #eee;
+	//background-color: coral;
 }
 .elite h3 {
 	border-bottom: #fff 2px solid;
-	width: 100%;
+	width: 80%;
 	overflow: hidden;
-	margin: 10px 0 10px 0;
+	margin: 10px auto 10px auto;
+	padding: 5px 10px;
 	display: block;
 	clear: both;
 	font: 20px "微软雅黑";
 }
+
 .elite h3 span.outspan {
 	background: #000;
 	margin: 5px 0 5px 0;
@@ -129,21 +134,25 @@
 	color: #fff;
 }
 .elite ul {
-	overflow: hidden
+	width: 80%;
+	margin: 0 auto;
+	padding-left: 100px;
+	display: block;
+	overflow: hidden;
+	//background-color: coral;
 }
 .elite ul li {
-	margin: 3px;
 	float: left;
 	display: block;
-	padding: 5px 5px 6px 5px;
+	padding: 15px 15px 6px 15px;
 	-webkit-transition: all 1s;
 	-moz-transition: all 1s;
 	-o-transition: all 1s;
 	transition: all 1s;
 }
 .elite li img {
-	width: 220px;
-	height: 220px;
+	width: 200px;
+	height: 200px;
 	background: #FFF;
 	padding: 4px;
 	box-shadow: 0 0 2px rgba(0, 0, 0, .5);
@@ -154,131 +163,121 @@
 	display: block;
 	text-align: center;
 	margin-top: 5px;
-	width: 220px;
+	width: 200px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	height: 20px;
 }
 .elite li:hover {
 	background: #666;
-	padding: 5px 5px 6px 5px;
+	padding: 15px 15px 6px 15px;
 }
 /* 文章推荐 */
-h2.blogtitle {
+h2.recommend {
+	padding: 10px 50px;
 	font: 20px "微软雅黑", Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	background: url(../images/h_line.jpg) repeat-x center right;
 }
-h2.blogtitle span {
-	padding: 0 20px;
+h2.recommend span {
+	padding: 0 10px;
 	color: #FE5187;
 	background: #fff;
 }
 /* 左边栏 */
 .bloglist {
-	width: 800px;
-
 	overflow: hidden;
 	background: url(../images/r_line.jpg) repeat-y right;
-	margin: 10px 0;
 }
-.bloglist h3 {
+.bloglist h3.title {
+	font: 18px "微软雅黑", Arial;
+	font-weight: 600;
 	margin: 20px 0 10px 0;
+	padding-left: 10px;
 	color: #333;
 }
-.bloglist figure {
-	float: left;
-	width: 183px;
-}
-.bloglist figure img {
-	padding: 4px;
-	border: #f4f2f2 1px solid;
-	width: 175px;
-}
+/*.bloglist figure {*/
+	/*float: left;*/
+	/*width: 183px;*/
+/*}*/
+/*.bloglist figure img {*/
+	/*padding: 4px;*/
+	/*border: #f4f2f2 1px solid;*/
+	/*width: 175px;*/
+/*}*/
 .bloglist ul {
-	float: left;
-	width: 520px;
-	height: 100px;
-	margin-top: 10px;
+	margin: 10px 0;
+	width: 760px;
 	line-height: 20px;
-	//background-color: red;
 }
-.bloglist p {
+/* 简介摘要 */
+p.abstract {
+	font-size: 14px;
+	padding: 10px 30px;
 	height: 80px;
 }
 /* 阅读全文 */
 a.readmore {
-	margin: 5px auto;
-	background: #FFC125;
-	color: #fff;
+	margin: 10px auto;
 	padding: 5px 10px;
+	color: #fff;
+	background: #FFC125;
 	float: right;
 }
-/* 更新时间及作者和类别 */
-p.dateview {
-	width: 695px;
-	overflow: hidden;
-	clear: both;
+/* 更新时间，作者，标签，阅读量 */
+p.info {
+	width: 650px;
+	height: 30px;
 	margin: 10px 0 0 0;
+	padding-left: 10px;
+	overflow: hidden;
 	display: inline-block;
-	background: #f6f6f6 url(../images/time.jpg) 15px center no-repeat;
-	line-height: 26px;
-	height: 26px;
 	color: #838383;
-	padding-left: 25px;
+	background-color: #f6f6f6;
+	line-height: 26px;
 }
-p.dateview span {
+p.info span:nth-child(1) {
 	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/clock.png) 0 center no-repeat;
 }
-p.dateview span a {
-	color: #099B43;
+p.info span:nth-child(2) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/author.png) 0 center no-repeat;
+}
+p.info span:nth-child(3) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/tag.png) 0 center no-repeat;
+}
+p.info span:nth-child(4) {
+	margin: 0 10px;
+	padding-left: 20px;
+	background: url(../images/eye.png) 0 center no-repeat;
+
 }
 /* 右边栏 */
 .weather {
 	background: url(../images/weather_bg.jpg) no-repeat;
 	height: 88px;
-	margin: 20px 0;
-	padding: 20px 0 0 75px;
+	margin: 20px 10px;
+	padding: 20px 0 0 70px;
 }
-.news h3 {
+#datepicker {
+	margin: 30px;
+}
+
+.friend-links h3 {
+	background: #fff url(../images/r_title_bg.jpg) repeat-x center;
+
+}
+.friend-links h3 span {
+	padding: 10px;
 	font-size: 16px;
-	background: url(../images/r_title_bg.jpg) repeat-x center right;
-}
-.click span {
-	padding-right:10px;
-	background-color: #fff;
-	color: #333;
-}
-.click span span{
-	background-color: #fff;
-	color: #FF4500;
-}
-.news ul {
-	margin-bottom: 20px;
-}
-.news ul li a:hover {
-	text-decoration: underline;
-	color: #FF4500;
-}
-.rank {
-	background: url(../images/rank.jpg) no-repeat left 8px;
-	margin: 10px 0;
-}
-.rank li {
-	line-height: 30px;
-	height: 30px;
-	overflow: hidden;
-	padding-left: 25px;
-	border-bottom: #CCC dotted 1px;
-}
-.links span {
-	padding-right:10px;
-	background-color: #fff;
-	color: #333;
-}
-.links span span{
-	background-color: #fff;
 	color: #00CD00;
+	background-color: #fff;
+
 }
 .website {
 	margin: 10px 0 0 0;

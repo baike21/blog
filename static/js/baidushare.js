@@ -1,6 +1,4 @@
-/**
- * Created by alex on 2017/8/27.
- */
+/* 2017-8-29 */
 window._bd_share_config = {
         "common": {
 					"bdSnsKey": {},

@@ -33,7 +33,8 @@ h1.introduce {
 
 }
 .arrow-box img {
-	width: 150px;
+	//width: 200px;
+	height: 150px;
 	float: left;
 	margin: 0 20px 0 20px;
 }
