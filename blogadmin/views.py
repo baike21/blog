@@ -27,7 +27,7 @@ def divide_page(request, articles):
     else:
         before_range_num = 3         # 当前页前显示3页
         after_range_num = 2          # 当前页后显示2页，一共显示6个页码号
-        list_per_page = 3            # 设置每页显示博文的数量
+        list_per_page = 5            # 设置每页显示博文的数量
         try:
             # 如果请求的页码小于1或者类型错误，则默认第1页
             page = int(request.GET.get("page",1))
@@ -105,9 +105,9 @@ def tech(request):
 
 
 def movie(request):
-    newest_filmreviews = FilmReview.objects.order_by('-pub_time').values('id', 'title', 'cover','pub_time')[0:5]
-    # Queryset的切片取值，从发布时间最新的开始，每次显示5个博文
-    # print("------最新的5条记录的部分索引用字段------->")
+    newest_filmreviews = FilmReview.objects.order_by('-pub_time').values('id', 'title', 'cover','pub_time')[0:6]
+    # Queryset的切片取值，从发布时间最新的开始，每次显示若干个博文
+    # print("------最新的6条记录的部分索引用字段------->")
     # print(type(newest_filmreviews))
     # print newest_filmreviews
     return render(request,'movie.html',{"newest_filmreviews":newest_filmreviews})

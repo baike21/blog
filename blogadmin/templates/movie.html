@@ -45,20 +45,13 @@
         $(function () {
             /*  初始化  */
             var counter = 0;    /*加载按键点击次数计数器*/
-            var Start = 5;      /*数据切片的记录起点,先开始页面有5条记录*/
+            var Start = 6;      /*数据切片的记录起点,先开始页面有7条记录*/
             var Size = 5;       /*每次加载记录的条数*/
             /*监听click事件*/
             $("#load-more").on('click',function (e) {
                 e.preventDefault();
-                Start += counter * Size;
-                /* 如果Start没有超出界限就加载更多 */
-                //if (Start+Size <= 10){
                 getData(Start, Size);
-                //}
-                //else {
-                //    /* 已经到底了 */
-                //    isFinal();
-                //}
+                Start += Size;
                 counter ++;
                 });
         });
@@ -77,21 +70,21 @@
                     var blog = data.bloglist;/*json对象组成的数组*/
                     var sum = blog.length;/* 每次加载数据个数 */
                     var result = '';
-					
+
 					for(var i=0; i<sum; i++){
 						console.log(blog[i].id);
 						result +='<ul class="arrow-box"><div class="leaf-shape">'+
-							'<img src="/media/'+blog[i].cover+'/">'+
+							'<img class="pic" src="/media/'+blog[i].cover+'">'+
 							'<p><a class="review-title" href="'+'/movie/detail/'+blog[i].id+'/"'+' target="_self">' + blog[i].title +
 							'</a></p>'+'<span class="dateview">'+ blog[i].pub_time +'</span></div></ul>';
 					}
-					console.log(result);
+					//console.log(result);
 					/* 将新拉取的数据附加到页面列表部分的下端 */
 					$('.blog-list-waterfall').append(result);
-					
+
 					/*如果剩下的记录数不够分页，就让分页数取剩下的记录数，例如分页数是5，只剩2条，则只取2条*/
                     if(sum < size ){
-						isFinal();/*隐藏load-more并显示已经到底了*/	
+						isFinal();/*隐藏load-more并显示已经到底了*/
                     }
 			
 	                },
